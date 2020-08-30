@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller8</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+    <style>
+      body{
+          background-color: #2f3640;   
+      }
+        
+    
+    </style>
+    <style type="text/css">
+      .ocultar {
+          display: none;
+      }
+
+      .mostrar {
+          display: block;
+      }
+    </style>
+</head>   
+<body>
+    <nav class="navbar bg-primary">
+      <h2 style="color: #ecf0f1" class="h2" >MVC</h2>
+      </nav>
+      <div class="container pt-4">
+        {% block body %}
+        {% endblock %}
+      </div>
+  
+      <!-- footer -->
+      <!-- scripts -->
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity= 
+"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"> 
+</script> 
+<script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity= 
+"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"> 
+</script> 
+<script src= 
+"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity= 
+"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"> 
+</script> 
+
+
+<script type="text/javascript"> 
+
+  function verificarPasswords() {
+
+      pass1 = document.getElementById('pass1');
+      pass2 = document.getElementById('pass2');
+      if (pass1.value != pass2.value) {
+          document.getElementById("error").classList.add("mostrar");
+
+          return false;
+      }
+      
+      else {
+          document.getElementById("error").classList.remove("mostrar");
+          document.getElementById("ok").classList.remove("ocultar");
+          document.getElementById("login").disabled = true;
+          setTimeout(function() {
+              location.reload();
+          }, 8000);
+
+          return true;
+      }
+
+  } 
+  
+</script>
+<script>
+    // Busco todos los controles de búsqueda.
+    $('[type="search"]').each(function() {
+      var $buscador = $(this);
+      
+      // Obtengo la referencia a la tabla vinculada a este control de búsqueda.
+      var $tabla = $('#' + $buscador.data('target'));
+      
+      // Cuando se presione una tecla sobre la caja de búsqueda...
+      $buscador.on('keyup', function() {
+        // ...me fijo si está vacío.
+        if ($buscador.val().trim() === '') {
+          // Si está vacío, muestro todas las filas.
+          $('tr', $tabla).show();
+        } else {
+          // Si no, oculto todas y sólo muestro las que contengan el texto que estoy buscando.
+          $('tr', $tabla).hide();
+          $('tr:contains("' + $buscador.val() + '")', $tabla).show();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
