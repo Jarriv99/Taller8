@@ -1,17 +1,19 @@
 {% extends "MVC.html" %}
 {% block body %}
-
+<div><br><br><br><br><br><br>
   <div class="row">
     <div class="col-md-4 offset-md-4">
       <div class="card card-body">
         <form action="" method="post">
             {% csrf_token %}
-            <h3>¿Quieres eliminar a {{ object.nombre }}?</h3>
+            <h3>¿Quieres eliminar el perfil de {{ object.nombre }}?</h3>
             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-            <a href="{% url 'listar_persona' %}" class="btn btn-danger btn-delete btn-sm">Cancelar</a>
+            <a href="{% url 'listar_persona' %}" class="btn btn-primary btn-delete btn-sm">Cancelar</a>
         </form>
       </div>
     </div>
   </div>
+</div>
+  
 
 {% endblock %}

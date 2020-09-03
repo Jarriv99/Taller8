@@ -2,8 +2,13 @@
 {% block body %}
 <a  href="/aplicacion/crear_persona" class="btn btn-primary btn-sm">Crear Registro</a><br/>
 <br/>
-<input style="color: white;" class="form-control" type="search" placeholder="Buscar..." data-target="tabla-resultado">
-<br>
+<style>
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #fff !important;
+}
+</style>
+<input class="form-control" type="search" placeholder="Buscar..." data-target="tabla-resultado">
+<br>  
 <table class="table table-striped table-dark" id="tabla-resultado">
     <thead class="thead-light">
       <tr style="color: white;">
